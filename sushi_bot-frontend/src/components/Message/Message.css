@@ -14,3 +14,19 @@
     align-self: flex-end;
   }
   
+  .button-group {
+    margin: 16px 0 4px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-gap: 4px; 
+  }
+
+  .chat-button {
+    min-width: 200px;
+    background-color: #a2b8ae;
+  }
+  .chat-button:hover {
+    background-color: #648476;
+  }
