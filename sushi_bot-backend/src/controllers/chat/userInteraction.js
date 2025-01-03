@@ -1,7 +1,9 @@
 const detectIntent = require('../../services/chat/detectIntent.service.js')
 const handleUserIntent = require('../../services/chat/handleUserIntent.service.js')
+const {callGPT} = require('../../services/chat/openAI.service.js')
 
-// Controller for detecting user intent
+const ADVANCED_MODE_ENABLED = true;
+
 const userInteraction = async (req, res) => {
     try {
         const { message } = req.body;
@@ -11,7 +13,11 @@ const userInteraction = async (req, res) => {
         }
 
         // Detect intent
-        const processedMessage = detectIntent(message);
+        let processedMessage;
+        processedMessage = detectIntent(message);
+        if (ADVANCED_MODE_ENABLED && processedMessage.intent === "UNKNOWN_INTENT") {
+            processedMessage = await callGPT(message)
+        }
 
         // Perform action
         const messageResponse = await handleUserIntent(processedMessage.intent, processedMessage.data)

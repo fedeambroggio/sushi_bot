@@ -7,8 +7,6 @@ const detectIntent = (message) => {
         data: {}
     };
 
-    console.log('lowerCaseMessage', lowerCaseMessage)
-
     // Basic keyword matching for intent detection
     if (lowerCaseMessage.includes("menu")) {
         result.intent = "SHOW_MENU";
