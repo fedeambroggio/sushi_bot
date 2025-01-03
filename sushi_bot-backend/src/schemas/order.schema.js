@@ -8,6 +8,7 @@ const OrderSchema = new mongoose.Schema({
     },
   ],
   total: { type: Number, required: true },
+  status: { type: String, default: "PENDING", enum: ['PENDING', 'CANCELED', 'DELIVERED'] },
   date: { type: Date, default: Date.now },
 });
 

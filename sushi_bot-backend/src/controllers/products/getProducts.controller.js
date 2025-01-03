@@ -1,11 +1,13 @@
-const Product = require("../../schemas/product.schema.js");
+const getProductsService = require('../../services/products/getProducts.service.js');
 
 const getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
-        res.json(products);
+        console.log('A')
+        const products = await getProductsService();
+        console.log('products', products)
+        res.status(200).json(products);
     } catch (err) {
-        res.status(500).json({ message: "Error al obtener los productos" });
+        res.status(500).json({ message: `Error al obtener los productos: ${err}` });
     }
 };
 

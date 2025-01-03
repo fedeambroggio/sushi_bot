@@ -9,7 +9,7 @@ const Input = ({ input, setInput, handleSend }) => {
         placeholder="Escribe tu mensaje..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && handleSend()}
+        /* onKeyPress={(e) => e.key === "Enter" && handleSend()} */
       />
       <button onClick={handleSend}>Enviar</button>
     </div>

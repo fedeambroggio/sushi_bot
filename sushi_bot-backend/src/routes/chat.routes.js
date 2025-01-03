@@ -1,8 +1,8 @@
 const express = require("express");
-const { detectUserIntent } = require("../controllers/chat");
+const { userInteraction } = require("../controllers/chat");
 
 const router = express.Router();
 
-router.post("/", detectUserIntent);
+router.post("/", userInteraction);
 
 module.exports = router;

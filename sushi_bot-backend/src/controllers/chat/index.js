@@ -1,5 +1,5 @@
-const detectUserIntent = require("./detectUserIntent.controller.js");
+const userInteraction = require("./userInteraction.js");
 
 module.exports = {
-    detectUserIntent,
+    userInteraction,
 };
